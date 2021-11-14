@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <div x-data="data()">
+        <ul>
+            <template x-for="product in Object.values(products)">
+                <li>
+                    <span x-text="product.name"></span> -
+                    <span x-text="product.stock"></span>
+                    <template x-if="product.stock == 0">
+                        (Sin Stock)
+                    </template>
+            </li>
+            </template>
+
+        </ul>
+    </div>
+    <script>
+        function data() {
+            return {
+                products: {
+                    1: {
+                        id: 1,
+                        name: 'Pantalon',
+                        stock: 5
+                    },
+                    2: {
+                        id: 2,
+                        name: 'Camisa',
+                        stock: 8
+                    },
+                    3: {
+                        id: 3,
+                        name: 'Casaca',
+                        stock: 3
+                    },
+                    4: {
+                        id: 4,
+                        name: 'Zapatilla',
+                        stock: 0
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
